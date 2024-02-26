@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html lang="">
+<head>
+<title>AVODHA SHOPPING</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{% static 'hm/layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+</head>
+
+<body>
+
+    <div class="wrapper row3">
+  <main class="hoc container clear">
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <ul class="nospace group element btmspace-80">
+ {% for i in pr %}
+      <li class="one_quarter">
+        <article>
+            <a href="{{i.get_url}}"><img src="{{i.img.url}}" alt="" style="height: 300;weidth: 300;">
+          <div class="txtwrap">
+            <h6 class="heading">{{i.name}}</h6>
+            <p>{{i.desc|truncatewords:17}} </p>
+              <p>Price: {{i.price}} Rs</p>
+              <p>Stock Left: {{i.stock}}</p>
+          </div>
+            </a>
+        </article>
+      </li>
+        {% endfor %}
+    </ul>
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+<script src="{% static 'hm/layout/scripts/jquery.min.js' %}"></script>
+<script src="{% static 'hm/layout/scripts/jquery.backtotop.js' %}"></script>
+<script src="{% static 'hm/layout/scripts/jquery.mobilemenu.js' %}"></script>
+</body>
+</html>
+{% endblock %}

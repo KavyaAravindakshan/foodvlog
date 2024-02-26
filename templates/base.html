@@ -1,0 +1,46 @@
+{% load static %}
+<html lang="">
+<head>
+<title>AVODHA SHOPPING</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{% static 'hm/layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row1">
+  <header id="header" class="hoc clear">
+    <!-- ################################################################################################ -->
+    <div id="logo" class="fl_left">
+      <h1><a href="/">AVODHA PRODUCTS</a></h1>
+    </div>
+    <nav id="mainav" class="fl_right">
+      <ul class="clear">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a class="drop" href="{% url 'register' %}">Register</a>
+                  <li><a class="drop" href="{% url 'login' %}">Login</a>
+
+
+                    <li><a class="drop" href="{% url 'cartDetails' %}"><i class="fa fa-shopping-cart" style="font-size:20px"></i> {{itc}}</a>
+
+        <li><a class="drop" href="#">Filter</a>
+
+          <ul>
+            <a href="/">ALL</a>
+          {% for i in ct %}
+  <a href={{i.get_url}}>{{i.name}}</a>
+          {% endfor %}
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <!-- ################################################################################################ -->
+  </header>
+</div>
+{% block content %}
+{% endblock %}
+</body>
+</html>
